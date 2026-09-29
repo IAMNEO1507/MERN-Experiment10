@@ -1,0 +1,16 @@
+# Dependency directories
+node_modules/
+
+# Environment variables
+.env
+backend/.env
+frontend/.env
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Mac OS generated files
+.DS_Store
