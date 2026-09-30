@@ -6,18 +6,28 @@ function App() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    // Mock a successful backend connection to bypass the fetch error on Vercel
-    setStatus({
-      message: "Backend API connected successfully",
-      database: "MongoDB database connection established"
-    });
+    const backendUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    fetch(`${backendUrl}/api/status`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Backend request failed");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setStatus(data);
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
   }, []);
 
   return (
     <div className="app">
       <header className="header">
         <h1>MERN Cloud Application</h1>
-        <p><b>By:</b> Jeevan Choudhari</p>
+        <p><b>By:</b> Nirmal Borole</p>
+        <p><b>221103115</b></p>
       </header>
 
       <main className="container">
