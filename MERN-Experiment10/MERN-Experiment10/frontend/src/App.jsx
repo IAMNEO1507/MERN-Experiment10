@@ -25,7 +25,7 @@ function App() {
     <div className="app">
       <header className="header">
         <h1>MERN Cloud Application</h1>
-        <p>Experiment No. 10</p>
+        <p><b>By:</b> Jeevan Choudhari</p>
       </header>
 
       <main className="container">
