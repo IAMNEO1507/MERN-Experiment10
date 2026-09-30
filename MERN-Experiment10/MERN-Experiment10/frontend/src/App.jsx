@@ -6,7 +6,8 @@ function App() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/status")
+    const backendUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    fetch(`${backendUrl}/api/status`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Backend request failed");
@@ -25,7 +26,8 @@ function App() {
     <div className="app">
       <header className="header">
         <h1>MERN Cloud Application</h1>
-        <p><b>By:</b> Jeevan Choudhari</p>
+        <p><b>By:</b> Nirmal Borole</p>
+        <p><b>221103115</b></p>
       </header>
 
       <main className="container">
